@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Movimentação</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="pedido.js"></script>
+    <script src="adicionarPedido.js"></script>
+    <script src="exibir.js"></script>
+</head>
+<body onload="aoCarregar()">
+    <div>
+        <div class="elementBlock">
+            <span>Data do movimento:</span>
+            <input type="date" id="movDate">
+        </div>
+        <div class="elementBlock">
+            <span>Número: </span><input type="number" id="pedidoNumero">
+            <span>Tipo de pagamento: </span>
+            <select name="pedidoPagamento" id="pedidoPagamento">
+                <option value="Cartão">Cartão</option>
+                <option value="Dinheiro">Dinheiro</option>
+                <option value="Boleto">Boleto</option>
+                <option value="Cheque">Cheque</option>
+                <option value="Outro">Outro</option>
+            </select>
+            <span>Valor: </span><input type="number" id="pedidoValor">
+            <span>Fora de data: </span>
+            <input type="checkbox" id="pedidoForaData" onmousedown="pedidoForaDeData()">
+            <div id="novaData" class="displayInline"></div>
+        </div>
+        <div class="elementBlock">
+            <span>Observações: </span>
+            <textarea id="pedidoObservacoes" cols="30" rows="2" class="displayBlock"></textarea>
+        </div>
+        <div>
+            <button id="pedidoAdicionar" onmousedown="adicionarPedido()">Adicionar</button>
+        </div>
+    </div>
+    <hr>
+    <div>
+        <p>Filtros: </p>
+        <span>Movimentação: </span><input type="date" id="filtroData">
+        <span>Mês: </span>
+        <select id="filtroMes"></select>
+        <span>Ano</span>
+        <select id="filtroAno"></select>
+        <span>Número: </span><input type="number" id="filtroNumero">
+        <span>Pagamento: </span>
+        <select id="filtroPagamento">
+            <option value="">-----</option>
+            <option value="Cartão">Cartão</option>
+            <option value="Dinheiro">Dinheiro</option>
+            <option value="Boleto">Boleto</option>
+            <option value="Cheque">Cheque</option>
+        </select>
+    </div>
+    <div>
+        <button onmousedown="limparFiltros()">Limpar filtros</button>
+        <button onmousedown="exibirPedidos()">Exibir pedidos</button>
+    </div>
+    <table id="tabelaPedidos">
+        <thead>
+            <tr>
+                <th>Movimentação</th>
+                <th>Pedido</th>
+                <th>Pagamento</th>
+                <th>Valor</th>
+                <th>Data</th>
+                <th>Observações</th>
+                <th></th>
+            </tr>
+        </thead>
+    </table>
+</body>
+</html>
+
+<!-- O usuário digitará a data do movimento e, abaixo, o número da boleta, o tipo de pagamento, valor e um campo de observação. Caso seja uma boleta fora de data, haverá um campo a mais para registrar a data e um campo de observação. Também será possível adicinar boletas faltando ao deixar o campo do valor em branco.
+Haverá uma opção para visualizar todas as boletas da movimentação daquele dia. O usuário poderá ordernar a visualição em ordem de boletas (crescente e decrescente), em tipo de pagamento e valor. Também será possível excluir boletas daquele dia. -->

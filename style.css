@@ -1,0 +1,25 @@
+.elementBlock {
+    margin-bottom: 10px;
+}
+
+.displayBlock {
+    display: block;
+}
+
+.displayInline {
+    display: inline;
+}
+
+#disabled {
+    display: none
+}
+
+/*Remove setas do number*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+textarea {
+    resize: none;
+}
